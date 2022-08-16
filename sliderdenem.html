@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="jquery.bxslider.css" rel="stylesheet" />	
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<script>$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            
+            $('.filter').show('1000');
+        }
+        else
+        {
+          
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});</script>  
+<style>
+
+
+    /* 
+    ================================
+        Best Viewed In Full Page
+    ================================
+*/
+
+/* Hover over a card to flip, can tab too. */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* default */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body */
+body {
+  min-height: 100vh;
+  padding: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  background: hsl(0, 2%, 88%);
+  font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* .flip-card-container */
+.flip-card-container {
+
+ 
+
+
+
+
+  width: 310px;
+  height: 500px;
+  margin: 40px;
+
+
+}
+
+/* .flip-card */
+.flip-card {
+  width: inherit;
+  height: inherit;
+
+  position: relative;
+  transform-style: preserve-3d;
+  transition: .6s .1s;
+}
+
+/* hover and focus-within states */
+.flip-card-container:hover .flip-card,
+.flip-card-container:focus-within .flip-card {
+  transform: rotateY(180deg);
+}
+
+/* .card-... */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+
+  background: var(--dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  backface-visibility: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .card-front */
+.card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* .card-back */
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* figure */
+figure {
+  z-index: -1;
+}
+
+/* figure, .img-bg */
+figure,
+.img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* img */
+img {
+  height: 100%;
+  border-radius: 24px;
+}
+
+/* figcaption */
+figcaption {
+  display: block;
+
+  width: auto;
+  margin-top: 12%;
+  padding: 8px 22px;
+
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  word-spacing: 6px;
+  text-align: right;
+
+  position: absolute;
+  top: 0;
+  right: 12px;
+
+  color: var(--white-1);
+  background: hsla(var(--hue), 25%, 10%, .5);
+}
+
+
+
+.card-front .img-bg {
+  clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0 100%);
+}
+
+
+
+.card-back .img-bg {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+}
+
+/* hover state */
+.flip-card-container:hover .card-front .img-bg::before {
+  width: 6px;
+  border-left-color: var(--primary);
+  border-right-color: var(--primary);
+}
+
+/* ul */
+ul {
+  padding-top: 50%;
+  margin: 0 auto;
+  width: 70%;
+  height: 100%;
+
+  list-style: none;
+  color: var(--white-1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* li */
+li {
+  width: 100%;
+  margin-top: 12px;
+  padding-bottom: 12px;
+
+  font-size: 14px;
+  text-align: center;
+
+  position: relative;
+}
+
+li:nth-child(2n) {
+  color: var(--white-2);
+}
+
+li:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: currentColor;
+  opacity: .2;
+}
+
+/* button */
+button {
+  font-family: inherit;
+  font-weight: bold;
+  color: var(--white-1);
+
+  letter-spacing: 2px;
+
+  padding: 9px 20px;
+  border: 1px solid var(--grey);
+  border-radius: 1000px;
+  background: transparent;
+  transition: .3s;
+
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  color: var(--primary);
+  background: hsla(var(--hue), 25%, 10%, .2);
+  border-color: currentColor;
+}
+
+button:active {
+  transform: translate(2px);
+}
+
+/* .design-container */
+.design-container {
+  --tr: 90;
+  --op: .5;
+
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+}
+
+/* .design */
+.design {
+  display: block;
+
+  background: var(--grey);
+  position: absolute;
+
+  opacity: var(--op);
+  transition: .3s;
+}
+
+.design--1,
+.design--2,
+.design--3,
+.design--4 {
+  width: 1px;
+  height: 100%;
+}
+
+.design--1,
+.design--2 {
+  top: 0;
+  transform: translateY(calc((var(--tr) - (var(--tr) * 2)) * 1%))
+}
+
+.design--1 {
+  left: 20%;
+}
+
+.design--2 {
+  left: 80%;
+}
+
+.design--3,
+.design--4 {
+  bottom: 0;
+  transform: translateY(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+}
+
+.design--3 {
+  left: 24%;
+}
+
+.design--4 {
+  left: 76%;
+}
+
+.design--5,
+.design--6,
+.design--7,
+.design--8 {
+  width: 100%;
+  height: 1px;
+}
+
+.design--5,
+.design--6 {
+  left: 0;
+  transform: translateX(calc((var(--tr) - (var(--tr) * 2)) * 1%));
+}
+
+.design--5 {
+  top: 41%;
+}
+
+.design--6 {
+  top: 59%;
+}
+
+.design--7,
+.design--8 {
+  right: 0;
+  transform: translateX(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+}
+
+.design--7 {
+  top: 44%;
+}
+
+.design--8 {
+  top: 56%;
+}
+
+/* states */
+button:hover+.design-container,
+button:active+.design-container,
+button:focus+.design-container {
+  --tr: 20;
+  --op: .7;
+}
+
+.abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 100%, .6);
+  font-size: 16px;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+
+
+
+* {box-sizing: border-box;}
+    
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    .gallery-title
+    {
+        font-size: 36px;
+        color: #FFA500;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+    .gallery-title:after {
+        content: "";
+        position: absolute;
+        width: 22.5%;
+        left: 38.5%;
+        height: 45px;
+        border-bottom: 1px solid #5e5e5e;
+        
+    }
+    .filter-button
+    {
+        font-size: 18px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 30px;
+    
+    }
+    .filter-button:hover
+    {
+        font-size: 18px;
+        border: 1px solid #838383;
+        border-radius: 5px;
+        text-align: center;
+        color: #d81d1d;
+        background-color: rgb(58, 57, 57);;
+        
+    
+    }
+    .btn-default:active .filter-button:active
+    {
+        background-color: #FFA500;
+        color: rgb(255, 255, 255);
+        
+    }
+     
+    .port-image
+    {
+        width: 100%;
+     
+    }
+    
+    .gallery_product
+    {
+        margin-bottom: 30px;
+    }
+    
+    img{
+            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 35px;
+
+    }
+
+    h1 {
+  position: relative;
+  text-align: center;
+  color: #353535;
+  font-size: 50px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.btn-5 {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255,27,0);
+background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+}
+.btn-5:hover {
+  color: #f0094a;
+  background: transparent;
+   box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #f0094a;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+    </style>
+<body>  
+  <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
+  <br> <br> <br> <br> <br> <br><br> <br> <br> <br>
+  <div class="container">
+    <div class="row">
+  <h6 style="height:50px;width:1300px;margin-left: 700px;margin-top: -25px;">
+    Kültür ve teknoloji arasında bir ilişkiden daha fazla bir bağ olduğu söylenebilir. Matbaa, pusula gibi 
+     şeyler ilk kez Çin’de ortaya çıkmıştır; ama bu buluşlar Avrupa’da farklı 
+     etkiler yaratmışken Çin’de böyle etkiler görülmemiştir.
+     <br>
+     <br>
+ Avrupa’da ilk Citroen (1919) ardından, Daimler Packard, Olds, v.b markalar
+  üretime geçiyor.  O sıralar Türkiye’nin henüz 
+   Osmanlı’dan devraldığı sadece 4 000 km’si iyi durumda 18 350 km kadar  
+   cesaretle genç Türkiye Cumhuriyeti’nin yetkililerine bir teklifte bulunur.
+    Der ki “bana otomobil ve yedek parça imtiyazı (tekeli) verin, tüm ülkenizi
+     bilabedel (bedavaya) karayolları ile donatayım…” Teklif görüşülür, görüşülür.
+      En büyük rütbeli paşamız Genelkurmay Başkanı Mareşal Fevzi Çakmak çıkar şöyle
+       der: “Yeni yollar Sovyet ordularının Türkiye’yi istilasını kolaylaştırır. O
+        yüzden muvafık değildir.”
+        <br>
+        <br> 
+         Çalgı aletlerinin deri kaplı olan tef ve benzeri aletlerin Resûlullah Efen­dimiz 
+         (s.a.v.) zamanında kullanıldığını ve Efendimiz’in buna ruhsat verdiğini görüyoruz.
+          Musikiye gelince,  Resûlullah Efendimiz (s.a.v.) Medine’ye hicret ettiğin­de Medineliler
+           onu tef çalıp neşide yani manzume, nağme, ezgi ile karşıladılar ve Efendimiz 
+        
+ 
+  </h6>
+ <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
+ <br> <br> <br> <br> <br> <br><br> <br> <br> <br>
+
+
+ 
+
+ 
+ 
+
+
+    <img src="./src/teklonojık_aletler.jpg"style=height:400px;width:600px;margin-left:-85px;margin-top:-50px;>
+ 
+    </div>
+  </div>
+ 
+  <button style="margin-left:620px ;margin-top: -250px;" class="custom-btn btn-5"><span>Button</span></button>
+   
+
+    <div class="container">
+        <div class="row">
+       
+        <div style="margin-top:50px ;margin-left: 240px;" align="center">
+            <button class="btn btn-default filter-button" data-filter="all">Tumu</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">Teknolojik Aletler</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Kara Yolları</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Calgi Aletleri</button>
+           
+       <!-- flip-card-container -->
+<div class="flip-card-container" style="--hue: 220">
+    <div style="margin-left: -750px;" class="flip-card filter hdpe">
+  
+      <div class="card-front ">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-30px ;" src="./src/bilgisayarG2.png" alt="Brohm Lake">
+          <figcaption>Bilgisayar</figcaption>
+        </figure>
+  
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-170px ;" src="./src/Bslider3.png" alt="Brohm Lake">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B13.html">
+        <button style="margin-left:20px;margin-top:150px;color: #000000;background-color: #d0f113;">Bilgisayar Açıklama</button>
+      </a>
+        <br>
+        <br>
+        <div>
+  <h6 style="margin-left:-220px;color: rgb(255, 255, 255);width: 250px;text-align: justify;margin-top: -225px;font-weight:600;font-weight:5400;">
+    Toplumumuz kişisel bilgisayarı ve onun
+     taşınabilir eşdeğeri, dizüstü bilgisayarını,
+      bilgi çağının simgeleri olarak tanıdılar
+       ve bilgisayar kavramıyla özdeşleştirdiler
+       Günümüzde çok yaygın olarak masaüstü ve 
+       dizüstü (laptop) bilgisayarlar kullanılmaktadır.
+        Bilgisayarın temel çalışma prensibi ikili sayı 
+        sistemi yani sadece 0 ve 1 den oluşan kodlamalardır.
+  </h6>
+</div>
+    
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- /flip-card-container -->
+  
+  <!-- flip-card-container -->
+  <div class="flip-card-container" style="--hue: 70;margin-top: -540px;">
+    <div class="flip-card filter hdpe">
+  
+      <div  class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-150px ;height:500px;margin-top:3px;width: 465px;" src="./src/laptopM1.png" alt="Image 2">
+          <figcaption>Laptop </figcaption>
+        </figure>
+  
+       
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-200px ;" src="./src/laptopslider3.jpg" alt="image-2">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B11.html">
+        <button style="margin-top:150px ;margin-left: 30px;color: #000000;background-color: rgb(234, 238, 16);">Laptop Açıklama</button>
+      </a>
+  
+        <h6 style="margin-left: -225px;margin-top: -160px;color: aliceblue;font-weight:600;font-weight:5400;width: 250px;"> Toplumumuz kişisel bilgisayarı ve onun
+          taşınabilir eşdeğeri, dizüstü bilgisayarını,
+           bilgi çağının simgeleri olarak tanıdılar
+            ve bilgisayar kavramıyla özdeşleştirdiler
+            Günümüzde çok yaygın olarak masaüstü ve 
+            dizüstü (laptop) bilgisayarlar kullanılmaktadır.
+             Bilgisayarın temel çalışma prensibi ikili sayı 
+             sistemi yani sadece 0 ve 1 den oluşan kodlamalardır.</h6>
+      
+       
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  
+  <!-- /flip-card-container -->
+  
+  <!-- flip-card-container -->
+  <div class="flip-card-container" style="--hue: 350">
+    <div class="flip-card filter hdpe">
+  
+      <div style="margin-top:-540px ;margin-left:370px;" class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-150px ;"  src="./src/TVslider3.jpg" alt="Brohm Lake">
+          <figcaption>Televziyon</figcaption>
+        </figure>
+      
+      </div>
+  
+      <div  style="margin-left:100px ;margin-top:-550px;margin-left:-355px;" class="card-back">
+       
+        <figure>
+          <div style="height:740px;width:800px;margin-left: -470px;margin-top: -50px;" class="img-bg">
+          <img style="height:579px ;" src="./src/televziyon3.jpg" alt="Brohm Lake">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B12.html#">
+        <button style="margin-top:220px ;color: #000000;background-color: #d0f113;margin-left: 25px;">Televizyon Açıklama</button>
+      </a>
+    <h6 style="margin-left: -225px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400;width: 250px;">
+       İlk televizyon ve iletişim üzerine 
+      araştırmalarına 12 yaşında başladı ama esas 
+      buluşunu üniversiteden sonraki yıllarında 
+      elde etti. Bir labaratuar kurarak çalışmalarını 
+      geliştiren Baird bugünkü televizyonların ilk
+       mucididir ve televizyonun patent haklarının 
+       da sahibidir. Patenti alması 1925 yılında 
+       olsada ilk televizyon yayınlarına BBC ile 
+       yaptığı anlaşmadan sonra 1929’lu yıllarda 
+       başlamıştır.  </h6>
+   
+    </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+<!--2.paragraffff-->
+
+
+<div class="flip-card-container" style="--hue: 220;margin-top: -480px;">
+    <div style="margin-left: -50px;" class="flip-card filter sprinkle">
+  
+      <div class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-140px ;height: 499px;width: 547px;" src="./src/ferariS1.png" alt="Brohm Lake">
+          <figcaption>Ferari</figcaption>
+        </figure>
+  
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img  style="margin-left:-290px ;" src="./src/ferariG2.png" alt="Brohm Lake">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B14.html">
+        <button style="margin-top: 75px;margin-left: 25px;color: #d1f313;background-color: #000000;margin-left: 25px;">Ferari Açıklma</button>
+      </a>
+      <h6 style="margin-left: -225px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400">
+       Enzo Ferrari, Modena şehrinde 1898 yılında dünyaya geldi.
+         I. Dünya Savaşı'nda babasını ve kardeşlerini 
+         kaybettikten sonra 1916 yılında, henüz 18
+          yaşındayken yalnız kaldı. Yarışçılık
+           kariyeri de bu dönemlerde başladı.
+       </h6>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+<!--P_2.paragraf-->
+
+
+
+
+<div class="flip-card-container" style="--hue: 70;margin-top: -480px;margin-left: -40px;">
+    <div class="flip-card filter sprinkle">
+  
+      <div  class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-120px ;height: 499px;width: 547px;" src="./src/bmwG1.png" alt="Image 2">
+          <figcaption>Bmw</figcaption>
+        </figure>
+  
+       
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-290px ;" src="./src/bmwG3.jpg" alt="image-2">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B15.html">
+        <button style="margin-top:120px;color: #000000;background-color:#d0f113;margin-left: 70px;">Bmw Açıklama</button>
+      </a>
+      <h6 style="margin-left: -195px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400">
+        Yıllardan beri yollarda gördüğümüz BMW, 
+        günümüzde en yüksek marka değerlerinden 
+        birine sahip olan en büyük otomobil 
+        üreticilerinden biridir. Peki Bmw ne demek? 
+        Almanca’da “Bayerische Motoren Werke” diye 
+        adlandırılan BMW’nin İngilizcesi de “Bavarian
+         Motor Works” olarak bilinmektedir. 
+         </h6>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+  <!----P_3_paragraf-->
+
+<div class="flip-card-container" style="--hue: 350">
+    <div class="flip-card filter sprinkle">
+  
+      <div style="margin-top:-520px ;margin-left:-10px;" class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-160px ;height: 499px;width: 547px;" src="./src/buggatiS1.png" alt="Brohm Lake">
+          <figcaption>Buggati</figcaption>
+        </figure>
+  
+      
+      </div>
+  
+      <div  style="margin-left:100px ;margin-top:-550px;margin-left:-25px;" class="card-back">
+        <!-- only if the image is necessary -->
+        <figure>
+          <div class="img-bg"> </div>
+          <img style="margin-left:-290px ;" src="./src/bugatiS2.jpg" alt="Brohm Lake">
+       
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B16.html">
+        <button style="margin-top:70px ;color: #000000;background-color:#d0f113;margin-left: 25px;">Buggati Açıklama</button>
+  </a>
+  <h6 style="margin-left: -205px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400">
+    "Bugatti" - uzak 1909'da geri İtalyan mühendis 
+    ve tasarımcı Ettore Bugatti tarafından oluşturulan
+     bir Fransız şirketi. , фирма успешно пережила 
+     Вторую мировую войну и практически перестала
+      существовать только после ухода из
+       жизни её основателя.  </h6>
+        <!-- can add svg here and remove these eight spans -->
+    </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-----Paragraf_3-->
+
+<div class="flip-card-container" style="--hue: 220;margin-top: -480px;margin-left: 23px;" >
+    <div style="margin-left: -50px;" class="flip-card">
+  
+      <div class="card-front  filter spray">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-100px ;height: 499px;width: 547px;" src="./src/kemanS2.png" alt="Brohm Lake">
+          <figcaption>Keman</figcaption>
+        </figure>
+  
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="./src/kemanS1.png" alt="Brohm Lake">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B17.html">
+        <button style="margin-top:70px ;color: #000000;background-color:#d0f113;margin-left: 45px;">Keman Açıklama</button>
+  
+    </a>
+     <h6 style="margin-left: -205px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400">
+      Keman yayına arşe denir. Arşede 
+      yapay ya da gerçek at kılının yanı 
+      sıra ham misina olarak adlandırılan
+       bir madde de kullanılabilir. Ayrıca 
+       ses çıkartmasını sağlamak amacıyla 
+       arşeye reçine adı verilen madde sürülür.
+        Reçine bala benzeyen sarı renkli
+         katı bir maddedir.  </h6>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+<!----P_2.paragraf-->
+<div class="flip-card-container" style="--hue: 70;margin-top: -530px;margin-left: 340px;">
+    <div class="flip-card  filter spray">
+  
+      <div  class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-100px ;height: 499px;width: 547px;" src="./src/piyanoS2.jpg" alt="Image 2">
+          <figcaption>Piyano</figcaption>
+        </figure>
+  
+       
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="./src/piyanoS3.png" alt="image-2">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B19.html">
+        <button style="margin-top:180px ;color: #000000;background-color:#d0f113;margin-left: 35px;">Piyano Açıklama</button>
+      </a>
+      <h6 style="margin-left: -185px;margin-top: -100px;color: rgb(255, 255, 255);width: 250px;font-weight:600;font-weight:5400">
+        Piyano vurmalı çalgı türlerinden bir tanesidir. 
+        Piyano müzik aletinde ses, teller aracılığıyla
+         elde edilir. Tuşlara basıldığı zaman içerideki
+          tahta çekiç, tellerle temas ederek sesin ortaya
+           çıkmasını sağlar. Bu tellere vurma işleminden 
+           dolayı piyano, vurmalı çalgılar sınıfındadır.
+            Klasik bir akustik piyanoda
+             genellikle 88 tuş mevcuttur. </h6>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!---P_3.paragraf-->
+  
+
+<div class="flip-card-container" style="--hue: 350;margin-left: 350px;">
+    <div class="flip-card  filter spray">
+  
+      <div style="margin-top:-540px ;margin-left:370px;" class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img style="margin-left:-100px ;height: 499px;width: 547px;" src="./src/saksafonS1.png" alt="Brohm Lake">
+          <figcaption>Saksafon</figcaption>
+        </figure>
+  
+      
+      </div>
+  
+      <div  style="margin-left:100px ;margin-top:-550px;margin-left:-365px;" class="card-back">
+        <!-- only if the image is necessary -->
+        <figure>
+          <div class="img-bg"></div>
+          <img style="height:590px ;width:597;margin-top: -25px;" src="./src/saksafonS3.jpg" alt="Brohm Lake">
+        </figure>
+  <a href="http://127.0.0.1:5500/G_sayfas%C4%B18.html">
+        <button style="margin-top:120px ;color: #000000;background-color:#d0f113;">Saksafon Açıklama</button>
+      </a>
+      <h6 style="margin-left: -205px;margin-top: -200px;color: aliceblue;width: 250px;font-weight:600;font-weight:5400">
+        SAKSAFONUN TARİHÇESİ SAKSAFONUN TARİHÇESİ 5 
+        Mart 2017 by Saksafon Kursu İzmir Saksafonun 
+        tarihçesi ve özellikler saksafonun tarihçesi 
+        Caz ve pop müziğin en asil enstrümanlarından 
+        biridir saksafon. Kendine has sesi ile dinleyenleri
+         büyüleyen, hayal dünyasını süsleyen, bir yaz
+          yağmuru hissini uyandırır insanın teninde.  </h6>
+    
+    </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <a style="display:scroll;position:fixed;bottom:5px;right:5px;height: 50px;" href="#" title="Back to Top"><img src="https://2.bp.blogspot.com/-PWnljjLo4mo/ViYQDGuIWvI/AAAAAAAAOQM/z29v4LgC37E/s1600/top.gif" /></a>
+
+
+
+
+
+
+
+  
+
+</body>
+</html>
+
+        
+
+
+        
+        
+        
+        
+        
+        

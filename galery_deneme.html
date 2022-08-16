@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="jquery.bxslider.css" rel="stylesheet" />	
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<script>$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            
+            $('.filter').show('1000');
+        }
+        else
+        {
+          
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});</script>
+<style>
+
+* {box-sizing: border-box;}
+    body {font-family: Verdana, sans-serif;background-color: rgb(58, 57, 57);}
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    .gallery-title
+    {
+        font-size: 36px;
+        color: #FFA500;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+    .gallery-title:after {
+        content: "";
+        position: absolute;
+        width: 22.5%;
+        left: 38.5%;
+        height: 45px;
+        border-bottom: 1px solid #5e5e5e;
+        
+    }
+    .filter-button
+    {
+        font-size: 18px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 30px;
+    
+    }
+    .filter-button:hover
+    {
+        font-size: 18px;
+        border: 1px solid #838383;
+        border-radius: 5px;
+        text-align: center;
+        color: #d81d1d;
+        background-color: rgb(58, 57, 57);;
+        
+    
+    }
+    .btn-default:active .filter-button:active
+    {
+        background-color: #FFA500;
+        color: rgb(255, 255, 255);
+        
+    }
+     
+    .port-image
+    {
+        width: 100%;
+     
+    }
+    
+    .gallery_product
+    {
+        margin-bottom: 30px;
+    }
+    
+    img{
+            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 35px;
+
+    }
+
+    </style>
+<body>
+    <img src="./src/teklonajikaletler.png"style=height:500px;width:100%;>
+    <div class="container">
+        <div class="row">
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+        <div style="margin-top:50px ;margin-left: 240px;" align="center">
+            <button class="btn btn-default filter-button" data-filter="all">Tümü</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">Teknolojik Aletler</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Kara Yolları</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Çalgı Aletleri</button>
+           
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B1.html">
+            <img style="height:300px ;width: 300px;" src="/src/laptopslider2.jpg" class="img-responsive"></a>
+            <b style="color:rgb(255, 255, 255) ;" class="text"><center>Laptop</center></b>
+        </div>
+          </div>
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe"><a href="http://127.0.0.1:5500/gecis_sayfasi3.html">
+                <img style="height:300px ;width: 300px;" src="./src/Bslider3.png" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Bilgisayar</center></b>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B12.html">
+                <img style="height:300px ;width: 300px;"  src="./src/televziyon1.jpg" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Televziyon</center></b>
+            </div>
+          </div>
+        </div>
+      </div>
+            
+
+            
+    
+      
+       
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B14.html">
+                <img style="height:300px ;width: 300px;"  src="./src/ferrari1.jpg" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Ferari</center></b>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B15.html">
+                <img style="height:300px ;width: 300px;" src="./src/bmwG2.jpg" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Bmw</center></b>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B16.html">
+                <img style="height:300px ;width: 300px;"  src="./src/buggatiS1.png" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Buggati</center></b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            
+
+
+
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B18.html">
+                <img style="height:300px ;width: 300px;"  src="./src/saksafonS3.jpg" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Saksafon</center></b>
+            </div>
+          </div>
+
+
+
+
+          
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B19.html">
+                <img style="height:300px ;width: 300px;"  src="./src/piyanoS2.jpg" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Piyano</center></b>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-sm">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray"><a href="http://127.0.0.1:5500/gecis_sayfas%C4%B17.html">
+                <img style="height:300px ;width: 300px;"  src="./src/kemanS1.png" class="img-responsive"></a>
+                <b style="color:rgb(230, 230, 230) ;" class="text"><center>Keman</center></b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+        
+</body>
+</html>
+
+        
+        
+
+        
+        
+        
+        
+        
+        

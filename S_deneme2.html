@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="jquery.bxslider.css" rel="stylesheet" />	
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+
+
+<script>$(document).ready(function(){
+
+  $(".filter-button").click(function(){
+      var value = $(this).attr('data-filter');
+      
+      if(value == "all")
+      {
+          
+          $('.filter').show('1000');
+      }
+      else
+      {
+        
+          $(".filter").not('.'+value).hide('3000');
+          $('.filter').filter('.'+value).show('3000');
+          
+      }
+  });
+  
+  if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});</script>
+<style>body{
+  background: #cf1313;
+}
+
+.team-area{
+  padding: 60px 0;
+}
+
+.section-heading{
+  text-align: center;
+  color: #fff;
+  margin-bottom: 50px;    
+  font-size: 65px;
+  font-family: 'Righteous', cursive;
+  letter-spacing: 5px;
+}
+
+.img-area{
+ 
+  display: inline-block;
+  overflow: hidden;
+ 
+}
+
+.team-single:hover .side-two{
+  transform: rotateY(0deg);
+  border-radius: 5px;
+}
+
+.team-single:hover .side-one{
+  transform: rotateY(180deg);
+}
+
+.content-area{
+  transform: perspective(1000px);
+  transition: 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.side-one{
+  position: relative;
+  transform: rotateY(0deg);
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+.side-two{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: rotateY(-180deg);
+}
+
+.side-one, .side-two{
+  backface-visibility: hidden;
+  transition: 1s;
+  transform-style: preserve-3d;
+}
+
+.side-one .card, .side-two .card{
+  min-height: 312px;
+}
+
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;background-color: rgb(255, 255, 255);}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+.gallery-title
+{
+  font-size: 36px;
+  color: #FFA500;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 70px;
+}
+.gallery-title:after {
+  content: "";
+  position: absolute;
+  width: 22.5%;
+  left: 38.5%;
+  height: 45px;
+  border-bottom: 1px solid #5e5e5e;
+  
+}
+.filter-button
+{
+  font-size: 18px;
+  border: 1px solid #000000dd;
+  border-radius: 5px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+
+}
+.filter-button:hover
+{
+  font-size: 18px;
+  border: 1px solid #838383;
+  border-radius: 5px;
+  text-align: center;
+  color: #d81d1d;
+  background-color: rgb(255, 255, 255);;
+  
+
+}
+.btn-default:active .filter-button:active
+{
+  background-color: #FFA500;
+  color: rgb(255, 255, 255);
+  
+}
+
+.port-image
+{
+  width: 100%;
+
+}
+
+.gallery_product
+{
+  margin-bottom: 30px;
+}
+
+img{
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+* {box-sizing: border-box;}
+    body {font-family: Verdana, sans-serif;background-color: rgb(238, 238, 238);}
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    .gallery-title
+    {
+        font-size: 36px;
+        color: #FFA500;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+    .gallery-title:after {
+        content: "";
+        position: absolute;
+        width: 22.5%;
+        left: 38.5%;
+        height: 45px;
+        border-bottom: 1px solid #5e5e5e;
+        
+    }
+    .filter-button
+    {
+        font-size: 18px;
+        border: 1px solid #000000dd;
+        border-radius: 5px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 30px;
+    
+    }
+    .filter-button:hover
+    {
+        font-size: 18px;
+        border: 1px solid #838383;
+        border-radius: 5px;
+        text-align: center;
+        color: #d81d1d;
+        background-color: rgb(255, 255, 255);;
+        
+    
+    }
+    .btn-default:active .filter-button:active
+    {
+        background-color: #FFA500;
+        color: rgb(255, 255, 255);
+        
+    }
+     
+    .port-image
+    {
+        width: 100%;
+     
+    }
+    
+    .gallery_product
+    {
+        margin-bottom: 30px;
+    }
+    
+    img{
+            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+   
+
+    }
+
+    h1 {
+  position: relative;
+  text-align: center;
+  color: #353535;
+  font-size: 50px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.btn-5 {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255,27,0);
+background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+}
+.btn-5:hover {
+  color: #f0094a;
+  background: transparent;
+   box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #f0094a;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.resimm{
+
+    border-radius: 25px;
+
+}
+
+
+
+.yaziboyutu{
+font-size: 15px;
+}
+    </style>
+<body>
+
+
+
+  <div style="margin-left: 50px;">
+  <br>
+<br>
+<div class="container">
+    <div class="row">
+  <h6 class="yaziboyutu" style="height:50px;width:1300px;margin-left: 700px;margin-top: -25px;font-weight:100;font-weight:400;">
+    Kültür ve teknoloji arasında bir ilişkiden daha fazla bir bağ olduğu söylenebilir. Matbaa, pusula gibi 
+     şeyler ilk kez Çin’de ortaya çıkmıştır; ama bu buluşlar Avrupa’da farklı 
+     etkiler yaratmışken Çin’de böyle etkiler görülmemiştir.
+     <br>
+     <br>
+ Avrupa’da ilk Citroen (1919) ardından, Daimler Packard, Olds, v.b markalar
+  üretime geçiyor.  O sıralar Türkiye’nin henüz 
+   Osmanlı’dan devraldığı sadece 4 000 km’si iyi durumda 18 350 km kadar  
+   cesaretle genç Türkiye Cumhuriyeti’nin yetkililerine bir teklifte bulunur.
+    Der ki “bana otomobil ve yedek parça imtiyazı (tekeli) verin, tüm ülkenizi
+     bilabedel (bedavaya) karayolları ile donatayım…” Teklif görüşülür, görüşülür.
+      En büyük rütbeli paşamız Genelkurmay Başkanı Mareşal Fevzi Çakmak çıkar şöyle
+       der: “Yeni yollar Sovyet ordularının Türkiye’yi istilasını kolaylaştırır. O
+        yüzden muvafık değildir.”
+        <br>
+        <br> 
+         Çalgı aletlerinin deri kaplı olan tef ve benzeri aletlerin Resûlullah Efen­dimiz 
+         (s.a.v.) zamanında kullanıldığını ve Efendimiz’in buna ruhsat verdiğini görüyoruz.
+          Musikiye gelince,  Resûlullah Efendimiz (s.a.v.) Medine’ye hicret ettiğin­de Medineliler
+           onu tef çalıp neşide yani manzume, nağme, ezgi ile karşıladılar.
+        
+ 
+  </h6>
+    <img class="resimm" src="./src/teklonojık_aletler.jpg"style=height:400px;width:600px;margin-left:-85px;margin-top:-50px;>
+ 
+    </div>
+  </div>
+  <button style="margin-left:940px ;margin-top: 100px;" class="custom-btn btn-5"><span>Button</span></button>
+<br>
+<br>
+<br>
+    
+    
+
+    
+
+
+
+
+
+
+<!--Başlangıç-->
+    <div class="wrapper">
+    <div class="container">
+   
+    
+  <div style="margin-top: -0px;">
+      
+      <div class="row">
+    
+        <div style="margin-top:50px ;margin-left: 240px;" align="center">
+            <button  class="btn btn-default filter-button" data-filter="all">Tümü</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">Teknolojik Aletler</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Kara Yolları</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Calgi Aletleri</button>
+           
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+                <!--Laptop-->
+                <div  class="col-sm-6 col-md-4 filter hdpe">
+                  <div class="team-single">
+                      <div class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                          <img src="src/laptopM6.jpg" style="width: 300px;height: 270px;" class="card-img-top" alt="şef">
+                                      </div>
+                                      <h4 class="mt-3">Laptop</h4>
+                                  </div>
+                              </div>
+                          </div>
+                        <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                     
+                                      <p style="text-align:justify ;" class="my-5">  
+                                        <img style="height: 220px;width: 340px;margin-top: -70px;" src="./src/laptopM10.jpg">
+                         <h6 style="margin-top: -30px ;text-align: justify;">Toplumumuz kişisel bilgisayarı ve onun taşınabilir eşdeğeri, dizüstü bilgisayarını, bilgi çağının simgeleri olarak tanıdılar ve bilgisayar kavramıyla özdeşleştirdiler Günümüzde çok yaygın olarak masaüstü ve dizüstü (laptop) bilgisayarlar kullanılmaktadır. Bilgisayarın temel çalışma prensibi ikili sayı sistemi yani sadece 0 ve 1 den oluşan kodlamalardır.</h6>
+                         
+                                    <a  href="http://127.0.0.1:5500/G_sayfas%C4%B11.html">
+                                      <button style="margin-top: -0px;" class="btn btn-default filter-button" data-filter="all">Laptop Hakkında</button>
+                                    </a>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>             
+       
+
+
+                <!--Bilgisayar-->
+                <div  class="col-sm-6 col-md-4 filter hdpe">
+                  <div class="team-single">
+                      <div class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                          <img src="src/bilgisayarG2.png" style="width: 300px;height: 270px;" class="card-img-top" alt="uzman">
+                                      </div>
+                                      <h4 class="mt-3">Bilgisayar</h4>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                    
+                                    <img src="src/Bslider3.png" style="width: 250px;height: 220px;margin-top: -20px;" class="card-img-top" alt="şef">
+                                    <h6 style="margin-top:30px ;text-align: justify;">2.Dünya Savaşı’nın başlamasıyla bilgisayar araştırmaları arttı.1941 de Alman mühendis Konrad, uçak ve roket için Z3 bilgisayarlarını geliştirdi.</h6>
+                                </div>
+                               
+                                      <a  href="http://127.0.0.1:5500/G_sayfas%C4%B13.html">
+                                        <button style="margin-left: 80px;margin-top: -25px;" class="btn btn-default filter-button" data-filter="all">Bilgisayar Hakkında</button>
+                                    </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        
+        
+        
+        
+                <!--Televziyon-->
+                <div style="margin-top: -390px;margin-left: 750px;" class="col-sm-6 col-md-4 filter hdpe">
+                  <div  class="team-single">
+                      <div style="margin-left:400x ;" class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                          <img src="./src/TVslider2.jpg" style="width: 300px;height: 270px;" class="card-img-top" alt="uzman">
+                                      </div>
+                                      <h4 class="mt-3">Televziyon</h4>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                               <img src="src/televziyon3.jpg" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                               <h6 style="margin-top:-3px ;text-align: justify;">İlk televizyon ve iletişim üzerine araştırmalarına 12 yaşında başladı ama esas buluşunu üniversiteden sonraki yıllarında elde etti. Bir labaratuar kurarak çalışmalarını geliştiren Baird bugünkü televizyonların ilk mucididir ve televizyonun patent haklarının da sahibidir.</h6>       
+                            </div>
+                                    <a  href="http://127.0.0.1:5500/G_sayfas%C4%B12.html#">
+                                      <button style="margin-top:-25px ;margin-left: 60px;" class="btn btn-default filter-button" data-filter="all">Televziyon Hakkında</button>
+                                  </a>
+                                   
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <br>
+          <br>
+      
+          <br>
+
+          <br>
+          <br>
+
+          <!--Kara Yolları-->
+
+                <!--ferari-->
+                <div class="col-sm-6 col-md-4 filter sprinkle">
+                  <div class="team-single">
+                      <div class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                          <img src="src/ferariS1.png" style="width: 300px;height: 270px;" class="card-img-top" alt="şef">
+                                      </div>
+                                      <h4 class="mt-3">Ferari</h4>                                        
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                        <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                    <img src="src/ferrari-fxx-33119-1920x1200.jpg" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                    <h6 style="margin-top:20px ;text-align: justify;">Enzo Ferrari, Modena şehrinde 1898 yılında dünyaya geldi. I. Dünya Savaşı'nda babasını ve kardeşlerini kaybettikten sonra 1916 yılında, henüz 18 yaşındayken yalnız kaldı. Yarışçılık kariyeri de bu dönemlerde başladı.</h6>
+                                    <a  href="http://127.0.0.1:5500/G_sayfas%C4%B14.html">
+                                      <button style="margin-top:10px ;" class="btn btn-default filter-button" data-filter="all">Ferari Hakkında </button>
+                                  </a>
+                                  
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>             
+       
+
+
+
+                <!--Bmw-->
+                <div style="margin-left:370px ;margin-top: -400px;" class="col-sm-6 col-md-4 filter sprinkle">
+                  <div class="team-single">
+                      <div class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                         
+                                        <img src="src/bmwG1.png" style="width: 300px;height: 270px;" class="card-img-top" alt="uzman">
+                                       
+                                    </div>
+                                      <h4 class="mt-3">Bmw</h4>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                    <img src="src/bmwG3.jpg" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                    <h6 style="margin-top:10px ;text-align: justify;">Yıllardan beri yollarda gördüğümüz BMW, günümüzde en yüksek marka değerlerinden birine sahip olan en büyük otomobil üreticilerinden biridir. Peki Bmw ne demek? Almanca’da “Bayerische Motoren Werke” diye adlandırılan BMW’nin İngilizcesi de “Bavarian Motor Works” olarak bilinmektedir.</h6>
+                                    <a  href="http://127.0.0.1:5500/G_sayfas%C4%B15.html">
+                                      <button style="margin-top:24px ;" class="btn btn-default filter-button" data-filter="all">Bmw Hakkında</button>
+                                  </a>
+                              
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+          
+          
+                <!--Buggati-->
+                <div style="margin-left: 750px;margin-top: -400px;" class="col-sm-6 col-md-4 filter sprinkle">
+                  <div class="team-single">
+                      <div class="content-area">
+                          <div class="side-one">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <div class="img-area">
+                                          <img src="./src/buggatiS3.png" style="width: 300px;height: 270px;" class="card-img-top" alt="uzman">
+                                      
+                                        </div>
+                                      <h4 class="mt-3">Buggati</h4>
+                                     
+
+                                  </div>
+                              </div>
+                          </div>
+                          <br>
+                          <br>
+                          <div class="side-two">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                    <img src="src/ferariS2.jpg" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                    <h6 style="margin-top:10px ;text-align: justify;">"Bugatti" - uzak 1909'da geri İtalyan mühendis ve tasarımcı Ettore Bugatti tarafından oluşturulan bir Fransız şirketi. , фирма успешно пережила Вторую мировую войну и практически перестала существовать только после ухода из жизни её основателя.</h6>
+                                    <a  href="http://127.0.0.1:5500/G_sayfas%C4%B16.html">
+                                      <button style="margin-top:24px ;" class="btn btn-default filter-button" data-filter="all">Buggati Hakkında</button>
+                                  </a>
+                 
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+
+<!---Çalgı Aletleri-->
+
+                    <!--Keman-->
+                    <div class="col-sm-6 col-md-4 filter spray">
+                      <div class="team-single">
+                          <div class="content-area">
+                              <div class="side-one">
+                                  <div class="card">
+                                      <div class="card-body text-center">
+                                          <div class="img-area">
+                                              <img src="src/kemanG1.png" style="width: 300px;height: 270px;" class="card-img-top" alt="şef">
+                                          </div>
+                                          <h4 class="mt-3">Keman</h4>                                        
+                                          
+                                      </div>
+                                  </div>
+                              </div>
+                            <div class="side-two">
+                                  <div class="card">
+                                      <div class="card-body text-center mt-4">
+                                        <img src="src/kemanS3.png" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                        <h6 style="margin-top:10px ;text-align: justify;">Keman yayına arşe denir. Arşede yapay ya da gerçek at kılının yanı sıra ham misina olarak adlandırılan bir madde de kullanılabilir. Ayrıca ses çıkartmasını sağlamak amacıyla arşeye reçine adı verilen madde sürülür. Reçine bala benzeyen sarı renkli katı bir maddedir.</h6>
+                                        <a  href="http://127.0.0.1:5500/G_sayfas%C4%B17.html">
+                                          <button style="margin-top: 24px;" class="btn btn-default filter-button" data-filter="all">Keman Hakkında</button>
+                                      </a>
+                            
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>             
+
+
+
+                    <!--Piyano-->
+                    <div style="margin-left:400px;margin-top: -400px;" class="col-sm-6 col-md-4 filter spray">
+                      <div class="team-single">
+                          <div class="content-area">
+                              <div class="side-one">
+                                  <div class="card">
+                                      <div class="card-body text-center">
+                                          <div class="img-area">
+                                              <img src="src/piyanoS2.jpg" style="height: 270px;width: 300px;" class="card-img-top" alt="uzman">
+                                          </div>
+                                          <h4 class="mt-3">Piyano</h4>
+                                         
+    
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="side-two">
+                                  <div class="card">
+                                      <div class="card-body text-center mt-4">
+                                        <img src="src/piyanoS4.png" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                        <h6 style="margin-top:10px ;text-align: justify;">Piyano vurmalı çalgı türlerinden bir tanesidir. Piyano müzik aletinde ses, teller aracılığıyla elde edilir. Tuşlara basıldığı zaman içerideki tahta çekiç, tellerle temas ederek sesin ortaya çıkmasını sağlar. Bu tellere vurma işleminden dolayı piyano, vurmalı çalgılar sınıfındadır. Klasik bir akustik piyanoda genellikle 88 tuş mevcuttur.</h6>
+                                        <a  href="http://127.0.0.1:5500/G_sayfas%C4%B19.html">
+                                          <button style="margin-top:24px ;" class="btn btn-default filter-button" data-filter="all">Piyano Hakkında</button>
+                                      </a>
+                                       
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              
+              
+                    <!--Saksafon-->
+                    <div style="margin-left:780px ;margin-top: -400px;" class="col-sm-6 col-md-4 filter spray">
+                      <div class="team-single">
+                          <div class="content-area">
+                              <div class="side-one">
+                                  <div class="card">
+                                      <div class="card-body text-center">
+                                          <div class="img-area">
+                                              <img src="./src/saksafonS1.png" style="width: 300px;height: 270px;" class="card-img-top" alt="uzman">
+                                          </div>
+                                          <h4 class="mt-3">Saksafon</h4>
+                                         
+    
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="side-two">
+                                  <div class="card">
+                                      <div class="card-body text-center mt-4">
+                                        <img src="src/saksafonS3.jpg" style="width: 270px;height: 220px;" class="card-img-top" alt="şef">
+                                        <h6 style="margin-top:10px ;text-align: justify;">SAKSAFONUN TARİHÇESİ SAKSAFONUN TARİHÇESİ 5 Mart 2017 by Saksafon Kursu İzmir Saksafonun tarihçesi ve özellikler saksafonun tarihçesi Caz ve pop müziğin en asil enstrümanlarından biridir saksafon. Kendine has sesi ile dinleyenleri büyüleyen, hayal dünyasını süsleyen, bir yaz yağmuru hissini uyandırır insanın teninde.</h6>
+                                        <a  href="http://127.0.0.1:5500/G_sayfas%C4%B18.html">
+                                          <button style="margin-top: 24px;" class="btn btn-default filter-button" data-filter="all">Saksafon Hakkında</button>
+                                      </a>
+                                        
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+
+
+<a style="display:scroll;position:fixed; bottom:-10px; right:20px; height: 50px;font-size: 1px;  " href="#" title="Back to Top"><img src="https://2.bp.blogspot.com/-PWnljjLo4mo/ViYQDGuIWvI/AAAAAAAAOQM/z29v4LgC37E/s1600/top.gif" /></a>
+
+</body>
+</html>

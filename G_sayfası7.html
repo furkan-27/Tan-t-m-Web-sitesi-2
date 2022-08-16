@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+<script>$(function() {
+  
+  var link = $('#navbar a.dot');
+  
+//   upper label id
+  var id =  $(this).attr('id');
+
+  // Move to specific section when click on menu link
+  link.on('click', function(e) {
+    var target = $($(this).attr('href'));
+    $('html, body').animate({
+      scrollTop: target.offset().top
+    }, 600);
+    
+//     upper label remove class
+    $('.comman').removeClass('active');
+    
+    $(this).addClass('active');
+//    label add
+  $('.'+id).addClass('active');
+   
+ 
+    e.preventDefault();
+  });
+  
+  // Run the scrNav when scroll
+  $(window).on('scroll', function(){
+    scrNav();
+  });
+  
+  // scrNav function 
+  // Change active dot according to the active section in the window
+  function scrNav() {
+    var sTop = $(window).scrollTop();
+    $('section').each(function() {
+      var id = $(this).attr('id'),
+          offset = $(this).offset().top-1,
+          height = $(this).height();
+      if(sTop >= offset && sTop < offset + height) {
+        link.removeClass('active');
+        $('#navbar').find('[data-scroll="' + id + '"]').addClass('active');
+      }
+    });
+  }
+  scrNav();
+});</script>
+<style>* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+p {
+  color: #565656;
+  line-height: 1.8;
+}
+.section {
+  min-height: 200px;
+}
+.container {
+  width: 1170px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.content-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  min-height: 800px;
+}
+.content {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+/* End Global Styles */
+
+/* Start Nav Styles */
+.navbar {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+}
+.navbar .nav-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.navbar .nav-menu li {
+  position: relative;
+  min-width: 200px;
+  text-align: right;
+}
+.navbar .nav-menu li .dot {
+  display: block;
+  color: #fff;
+  padding: 5px 0;
+}
+.navbar .nav-menu li .dot::before,
+.navbar .nav-menu li .dot::after {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 50%;  
+  top: 50%;  
+  transition: all .3s ease;
+}
+.navbar .nav-menu li .dot::before {
+  width: 5px;
+  height: 5px;
+  right: 0;
+  border: 2px solid #000;
+  transform: translateY(-50%);
+}
+.navbar .nav-menu li .dot::after {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #000;
+  right: -5px;
+  transform: translateY(-50%) scale(0);
+}
+.navbar .nav-menu li .dot.active::before,
+.navbar .nav-menu li:hover .dot::before {
+  background: #f44336;
+  border-color: #f44336;
+}
+.navbar .nav-menu li .dot.active::after,
+.navbar .nav-menu li:hover .dot::after {
+  transform: translateY(-50%) scale(1);  
+}
+.navbar .nav-menu li .dot span {
+  display: inline-block;
+  opacity: 0;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: capitalize;
+  background-color: #f44336;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-right: 30px;
+  transform: translateX(20px);
+  transition: all .3s ease;
+}
+.navbar .nav-menu li .dot span::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-left: 7px solid #f44336;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  top: 50%;
+  transform: translate(7px, -50%);
+  right: 0;
+  transition: all .3s ease;
+}
+.navbar .nav-menu li .dot.active span,
+.navbar .nav-menu li:hover .dot span {
+  transform: translateX(0px);
+  opacity: 1;
+}
+/* End Nav Styles */
+
+/* Start Home Styles */
+#home {
+  background-color: #f6f6f6;
+}
+#home button {
+  border: 2px solid #fe0000;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 25px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: all .3s ease;
+  margin-top: 20px;
+}
+#home button:hover {
+  background-color: #ffc107;
+  color: #fff;
+}
+/* End Home Styles */
+
+/* Start About Styles */
+#about .container {
+  padding: 100px 0;
+}
+#about p {
+  width: 60%;
+  margin: 10px auto;
+}
+#about img {
+  margin-top: 40px;
+}
+/* End About Styles */
+
+/* Start Services Styles */
+#services {
+  background-color: #eee;
+}
+#services .services {
+  margin: 40px auto;
+}
+#services .services .service {
+  width: 50%;
+  padding: 1%;
+}
+
+#services .text-right {
+  float: right;
+}
+#services .text-left {
+  float: left;
+}
+/* End Services Styles */
+
+/* Start Testimonials Styles */
+#test,
+#test .content-wrapper {
+  min-height: 400px;
+}
+/* End Testimonials Styles */
+
+.nav-label{margin-bottom:10px; text-align:right; color:#000; font-weight:700; display:none;}
+
+.nav-label.active{display:block;}
+
+/* Start Contact Styles */
+#contact {
+  min-height: 600px;
+  background-color: #222;
+  color: #fff;
+}
+#contact .content-wrapper {
+  min-height: 600px;
+}
+#contact p {
+  color: #eee
+}
+#contact .mail {
+  font-size: 30px;
+  margin-top: 40px;
+}
+/* End Contact Styles */
+
+/* Start Footer Styles */
+footer {
+  background-color: #000;
+  padding: 40px 0;
+}
+footer p {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: .5px;
+  font-weight: 700;
+}
+
+
+body {
+
+background-image:rgb(228, 15, 15);
+background-repeat: repeat;
+margin: 0px;
+padding: 0px;
+}
+.wrapper {
+
+  width: 600px;
+  height: 370px; 
+
+}
+
+#slide {
+  position: absolute;
+  left: -1600px;
+  width: 600px;
+  height: 370px;
+  margin-left: 300px;
+  margin-top: 150px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
+
+.yazı {
+
+  width: 600px;
+  height: 370px; 
+
+}
+
+#resim {
+  position:absolute;
+  right: -1600px;
+  width: 600px;
+  height: 370px;
+  margin-left: 30px;
+  margin-top: -55px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes resim {
+  100% { right: 0; }
+}
+
+@keyframes resim {
+  100% { right: 0; }
+}
+
+
+.wrap{
+
+  width: 600px;
+  height: 370px; 
+
+}
+
+#slit {
+  position: absolute;
+  left: -1600px;
+  width: 600px;
+  height: 370px;
+  margin-left: 5px;
+  margin-top: 50px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slit {
+  100% { left: 0; }
+}
+
+@keyframes slit {
+  100% { left: 0; }
+}
+.wrapap{
+
+width: 600px;
+height: 370px; 
+
+}
+
+#slitet {
+  position:absolute;
+  left: 550px;
+  width: 600px;
+  height: 370px;
+  margin-left: 900px;
+  margin-top: -450px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slitet {
+  100% { right: 0; }
+}
+
+@keyframes slitet  {
+  100% { right: 0; }
+}
+
+#carouselExampleControls{
+-webkit-animation: slide 0.1s forwards;
+  -webkit-animation-delay: 0.1s;
+  animation: slide 0.1s forwards;
+  animation-delay: 0.1s;
+}
+
+.toplu{
+
+margin-top: -110px;
+
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+  
+
+
+
+<!-- Start Nav Section -->
+<nav id="navbar" class="navbar">
+        <p class="nav-label comman  dsummary" style="top: -20px;">About me</p> 
+        <p class="nav-label comman dassess" style="top: -20px;">Services</p> 
+        <p class="nav-label comman dplan" style="top: -20px;">Testimonials</p> 
+        <p class="nav-label comman dtrain" style="top: -20px; ">Contact</p> 
+    
+  
+  <ul class="nav-menu">
+    <li>
+      <a data-scroll="home" href="#home" id="dintro" class="dot active">
+        <span>Paragraf 1</span>
+      </a>
+    </li>
+    <li>
+      <a data-scroll="about" href="#about" id="dsummary" class="dot">
+        <span>Paragraf 2</span>
+      </a>
+    </li>
+    <li>
+      <a data-scroll="services" href="#services" id="dassess" class="dot">
+        <span>Paragraf 3</span>
+      </a>
+    </li>
+    
+   
+  </ul>
+</nav>
+<!-- End Nav Section -->
+
+<!-- Start Home Section -->
+<section id="home" class="section">
+    <div class="container">
+      <div class="content-wrapper text-center">
+        <div class="content">
+            <div class="toplu">
+                <div class="wrapper">
+                    <h6 style="text-align:justify ;" id="slide" >Keman yayına arşe denir. Arşede yapay ya da gerçek at kılının yanı sıra ham misina olarak adlandırılan bir madde de kullanılabilir. Ayrıca ses çıkartmasını sağlamak amacıyla arşeye reçine adı verilen madde sürülür. Reçine bala benzeyen sarı renkli katı bir maddedir.
+            
+                        Kemanın 35 ila 36 cm arasında değişebilen gövdesi, göğüs, sırt ve yanlıklardan oluşur. Arşenin gidiş gelişine yol vermek için kapakların orta bölümünde C şeklinde kıvrımları vardır. Köprünün her iki yanında f biçiminde ses delikleri bulunur ve bu delikler oluşan ses titreşimlerinin dışarı çıkmasını sağlar. Akçaağaçtan yapılan sapın sonunda salyangoz adı verilen bölüm bulunmaktadır. Keman dört tel üzerine düzenlidir (Sol, Re, La, Mi). Tellerin bir ucu, gövdenin üst tarafında bulunan burgulara iliştirilir. Burgulara bağlanan telin diğer ucu ise bir eşikten (köprü) geçerek gövdenin ucundaki kuyruk bölümüne bağlanır. Köprü, tellerin titreşimini üst kapağa iletir.
+                        
+                        
+                    </h5>   
+            </div>
+                    <div class="col-12 col-md-8">
+                        <img style="height: 250px;width:280px;margin-left: -750px;margin-top: -250px;" src="./src/kemanG1.png">
+                    </div>
+                  </div>
+      
+    </section>
+<!-- End Home Section -->
+
+
+<section id="about">
+  <div class="container text-center">
+    <div class="yazı">  
+        <h6 style="margin-top:-5px ;text-align: justify;margin-left: 50px;"  id="resim" >
+            Keman’ın ilk kez nerede yapıldığı kesin olarak bilinmemekle birlikte, ilkel topluluklarda boş kabak, boş hindistan cevizi, taş, kemik, metal, büyük bir midye kabuğu ya da kabuklu hayvanlardan yaralanarak akustik titreşim kutu elde etme düşüncesinin yanı sıra, hayvanlardan bitkilerden elde edilen ipliksi (lif, kiriş,v.b.) maddelerin tınlamasının da müzik üretmede kullanılmış olabileceği düşünülmektedir. Atı ilk evcilleştiren ve atın kuyruk kıllarını müzik üretmede kullanan Asya toplumlarında, özellikle Hintlilerde, Perslerde müziğin gelişimi için büyük anlam taşıyan yayın en ilkel biçimiyle karşılaşılır.
+    
+            9. yüzyılda yayla çalınan Çin çalgısı ‛‛huchyn’’  karşımıza çıkmaktadır. Huchyn, bambu veya hindistan cevizinden yapılarak üzeri yılan derisiyle kaplanan küçük silindirik bir gövde ve bu gövde üzerinde iki teli bulunan bir yaylı çalgıydı. Tellerin kökenine indiğimizde ise bitki, kıl, ipek ve bağırsak gibi maddelerle karşılaşılır.Eski Asya çalgılarından “kemengeh” kemanın atası sayılabilecek bir çalgıdır.
+            
+            
+        </h6>
+    </div>
+            <div class="col-6 col-md-4">
+    <img style=" margin-top: 15px;height: 300px;margin-left: 800px;margin-top: -350px;" src="./src/kemanG2.png">
+    </div>
+          </div>
+    
+    
+    
+  </div>
+</section>
+<!-- Start Services Section -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="content-wrapper text-center">
+      <div class="content">
+        <div class="wrap">
+            <h6 style="margin-left:-80px ;" id="slit" >
+                “Rebap” kemanın en önemli atalarından biridir. Ayrıca<br>
+                 yaylı çalgıların Avrupa’da tanınmasına ve yayılmasına<br>
+                  da yardımcı olmuştur. Tek telli bir çalgıdır. Tel<br>
+                   sapın üzerine bir burgu yardımı ile sabitlenmiştir.<br>
+                    Rebap genellikle Türk ve Arap çalgısı olarak <br>
+                    bilinmektedir. Batıya ise Arapların İspanya’ya<br>
+                     göçü ile gelmiştir. Burada gelişimini tamamlamıştır.<br>
+                      Avrupa’da yaylı çalgıların gelişimine yaptığı <br>
+                      katkı küçümsenemez. Arapların rebabı, Avrupa’da<br>
+                       “rebec” adını almıştır. Rebec son olarak 17. <br>
+                       ve 18. yüzyılda karşımıza pochettes ya da <br>
+                       sordines adlarıyla çıktı. Bu son formu küçük, <br>
+                       dar gövdeli ve kayık biçimindeydi. Rebec Avrupa’ya <br>
+                       ise haçlı seferleri sırasında getirilmiştir.<br>
+                Kemanın oluşumundaki bir sonraki evrede  karşımıza <br>
+                “vielle a’archet” çıkar. Omuza dayanarak çalınan ilk <br>
+                enstrümanlardır. Fransa’da gezici saz şairleri tarafından <br>
+                çalınarak gelişimi ve halka ulaşması sağlanmıştır.<br>
+                
+                
+            </h6>
+        </div>
+            <div class="col-12 col-md-8">
+               
+            </div>
+          </div>
+        
+         
+        
+          <div class="wrapap">
+            <h6 style="margin-top:330px ;margin-left: 800px;" id="slitet" >
+                Keman sözünü ettiğimiz atalarından bu yana pek çok değişim <br>
+                geçirerek bugünkü yapısına kavuşmuştur. Bugün bildiğimiz<br>
+                 benzer ilk keman ise 1550’lerde İtalya yarım adasında <br>
+                 ortaya çıkmış ve önemi 1600’lerde İtalya opera<br>
+                  orkestralarında yer almasıyla fark edilmiştir. <br>
+                  Bir orkestra enstrümanı olarak önemi 13. Louis’in 1626<br>
+                   tarihinde ‛‛Lesvingt Quarte Violins du Roy’’ <br>
+                   orkestrasını kurmasıyla artmıştır. Keman’a orkestrada<br>
+                    ilk olarak, 1565’te St.Riggo ve Corteccia’nın eserlerinde <br>
+                    yer verilmiştir. Sonraki yıllarda orkestradaki görevlerinden<br>
+                     dolayı 1. ve 2. Keman olarak adlandırılmış ve orkestradaki <br>
+                     sayıları çoğaltılmıştır. Sonraki yüzyıllarda İtalya’da keman<br>
+                      gelişimi artarak Fransa, İngiltere, Almanya, Rusya ve diğer<br>
+                       ülkelerde devam etmiştir. Kemana verilen önem arttıkça<br>
+                        besteciler keman için daha fazla eser vermeye başlamışlardır.<br>
+                          16.ve 17. yüzyıldaki keman yapım ustaları Nicolo Amati,<br>
+                           Paolo Maggini, Giuseppe Guarneru, Antonio <br>
+                           Stradivarius keman’a son şeklini vermişlerdir.<br>
+            </h6>
+          
+        </div>
+        
+        
+        
+        <div style="height:620px;width:350px;margin-top: -50px;margin-left:-209px;">
+        
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img style="height:450px ;width: 350px;" class="d-block w-100" src="./src/kemanS1.png" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img  style="height:450px ;width: 350px;"class="d-block w-100" src="./src/kemanS2.png" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img style="height:450px;width: 350px;" class="d-block w-100" src="./src/kemanS3.png" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        
+        <a style="display:scroll;position:fixed;bottom:5px;right:5px;height: 50px;" href="#" title="Back to Top"><img src="https://2.bp.blogspot.com/-PWnljjLo4mo/ViYQDGuIWvI/AAAAAAAAOQM/z29v4LgC37E/s1600/top.gif" /></a>
+
+</body>
+</html>
